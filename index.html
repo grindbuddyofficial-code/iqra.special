@@ -3,6 +3,8 @@
 
 <head>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For Iqra ❤️</title>
 
 <style>
@@ -16,8 +18,8 @@ color:white;
 }
 
 h1{
-margin-top:80px;
-font-size:40px;
+margin-top:60px;
+font-size:32px;
 }
 
 button{
@@ -31,16 +33,17 @@ color:#ff4d6d;
 }
 
 img{
-width:320px;
-height:320px;
+width:90%;
+max-width:350px;
+height:auto;
 border-radius:15px;
-margin-top:40px;
+margin-top:30px;
 box-shadow:0px 0px 20px rgba(0,0,0,0.3);
 }
 
 .text{
 margin-top:20px;
-font-size:20px;
+font-size:18px;
 padding:10px;
 }
 
@@ -48,11 +51,16 @@ padding:10px;
 display:none;
 }
 
-canvas{
-position:fixed;
-top:0;
-left:0;
-pointer-events:none;
+#eidPage{
+display:none;
+font-size:28px;
+margin-top:120px;
+animation:fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn{
+0%{opacity:0; transform:scale(0.8);}
+100%{opacity:1; transform:scale(1);}
 }
 
 </style>
@@ -81,7 +89,15 @@ pointer-events:none;
 
 </div>
 
-<canvas id="confetti"></canvas>
+<div id="eidPage">
+
+<h1>🌙 Eid Mubarak Iqra 🌙</h1>
+
+<p>Allah tumhari life khushiyon se bhar de 🤲</p>
+
+<p>May your Eid be full of smiles and blessings ✨</p>
+
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -106,7 +122,7 @@ let captions=[
 
 "🎉 Aaj ka din sirf tumhara hai <br> Enjoy your special day 🎂",
 
-"🥳 Tumhari life khushiyon se bhari rahe <br> Happy Birthday yara 💕",
+"🥳 Tumhari life khushiyon se bhari rahe <br> Happy Birthday bestie 💕",
 
 "🎂 Har saal tumhari smile aur bright ho <br> Stay blessed always ✨",
 
@@ -125,6 +141,7 @@ let captions=[
 ];
 
 let i=0;
+let eidShown=false;
 
 function startShow(){
 
@@ -144,6 +161,22 @@ setInterval(slideshow,3000);
 
 function slideshow(){
 
+if(i==5 && !eidShown){
+
+eidShown=true;
+
+document.getElementById("slideshow").style.display="none";
+document.getElementById("eidPage").style.display="block";
+
+setTimeout(function(){
+
+document.getElementById("eidPage").style.display="none";
+document.getElementById("slideshow").style.display="block";
+
+},4000);
+
+}
+
 document.getElementById("slide").src=images[i];
 document.getElementById("caption").innerHTML=captions[i];
 
@@ -158,7 +191,4 @@ i=0;
 </script>
 
 </body>
-
-
 </html>
-
